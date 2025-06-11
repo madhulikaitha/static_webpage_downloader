@@ -1,0 +1,19 @@
+{
+    "manifest_version": 3,
+    "name": "Static Webpage Downloader",
+    "version": "1.0",
+    "description": "Capture and download a webpage as a static HTML snapshot.",
+    "permissions": ["scripting", "downloads", "tabs", "activeTab"],
+    "hostpermissions":["https://*/*","http://*/*"],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": ["https://*/*","http://*/*"],
+        "js": ["content.js"],
+        "run_at": "document_idle"
+      }
+    ]
+  }
+  
